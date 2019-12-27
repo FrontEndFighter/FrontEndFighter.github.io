@@ -1,0 +1,20 @@
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        !(function () {
+            var isEn = ['zh-cn', 'zh', 'zh-tw', 'zh-hk'].indexOf(navigator.language.toLowerCase()) >= 0 ? false : true;
+            document.title = isEn ? 'Redirecting..' : '重定向中..';
+            location.href = location.href.replace('fef.li','ikrong.com')
+        })()
+    </script>
+</body>
+
+</html>
