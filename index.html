@@ -13,14 +13,17 @@
             var isEn = ['zh-cn', 'zh', 'zh-tw', 'zh-hk'].indexOf(navigator.language.toLowerCase()) >= 0 ?
                 false : true;
             document.title = isEn ? 'Redirecting..' : '重定向中..';
+            var url = new URL(location.href)
             var paths = location.pathname.split(/\//g)
-            switch (paths[1].toLowerCase()) {
-                case 'code':
-                    location.href = location.href.replace(/^http(s)?:\/\/fef.li\/code/i, 'https://code.ikrong.com')
-                    break;
-                default:
-                    location.href = location.href.replace(/^http(s)?:\/\/fef.li/, 'https://ikrong.com')
-                    break;
+            var c = url.searchParams.get('c') || url.searchParams.get('C')
+            var r = url.searchParams.get('r') || url.searchParams.get('R')
+            var p = url.searchParams.get('p') || url.searchParams.get('P')
+            if (c) {
+                return location.href = 'https://code.ikrong.com/' + c
+            } else if (r) {
+                return location.href = 'https://ikrong.com/r/' + r
+            } else if (p) {
+                return location.href = 'https://ikrong.com/post/' + p
             }
         })()
     </script>
